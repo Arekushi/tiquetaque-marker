@@ -4,6 +4,7 @@ from src.selenium.action_type import ActionType as AT
 from src.notifier import failed, success
 from config.logging import setup_logging
 import logging
+from random import randrange
 
 BASE_URL = settings.URLS.base_url
 
@@ -21,6 +22,10 @@ ACTIONS = [
     {
         'type': AT.CLICK,
         'xpath': settings.XPATH.LOGIN.login_button
+    },
+    {
+        'type': AT.SLEEP,
+        'time': randrange(0, settings.VARS.delay_minutes_range * 60)
     },
     {
         'type': AT.CLICK,
