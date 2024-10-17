@@ -1,5 +1,6 @@
 [VARS]
 delay_minutes_range = 3
+days_off = []
 
 [URLS]
 base_url = "https://tiquetaque.app"

@@ -1,9 +1,10 @@
+import logging
 from config.config import settings
 from src.selenium.pipeline_automation import PipelineAutomation
 from src.selenium.action_type import ActionType as AT
 from src.notifier import failed, success
+from src.date_helper import is_day_off, get_today
 from config.logging import setup_logging
-import logging
 from random import randrange
 
 BASE_URL = settings.URLS.base_url
@@ -47,6 +48,13 @@ ACTIONS = [
 def main():
     setup_logging()
     
+    if not is_day_off():
+        start_automation()
+    else:
+        logging.warning(f'Hoje [{get_today()}] é um dia de folga')
+
+
+def start_automation():
     automation = PipelineAutomation(BASE_URL)
     
     try:
