@@ -92,7 +92,7 @@ ACTIONS = [
         'xpath': '...'
     },
     {
-        'type': AT.CUSTOM # Irá executar uma ação customizada
+        'type': AT.CUSTOM, # Irá executar uma ação customizada
         'callback': callback # Esse método receberá o driver e o WebDriverWait
     }
 ]
